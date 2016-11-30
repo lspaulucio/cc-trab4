@@ -61,6 +61,9 @@ int get_scope(SymTable* st, int i);
 // No check is made by this function, so make sure that the index is valid first.
 int get_line(SymTable* st, int i);
 
+int get_offset(SymTable* st, int i);
+void set_offset(SymTable* st, int i, int new_offset);
+
 // Prints the given table to stdout.
 void print_sym_table(SymTable* st);
 

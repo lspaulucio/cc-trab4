@@ -2,6 +2,7 @@
 #include <stdio.h>
 #include <string.h>
 #include "tables.h"
+#include "ast.h"
 
 // Literals Table
 // ----------------------------------------------------------------------------
@@ -60,6 +61,8 @@ typedef struct {
   int line;
   int arity;
   int scope;
+  int offset;
+  AST *pointer;
 } Entry;
 
 struct sym_table {
@@ -99,6 +102,8 @@ int add_func(SymTable* st, char* s, int line, int arity) {
     int old_side = st->size;
     st->t[st->size].scope = -1;
     st->t[st->size].arity = arity;
+    st->t[st->size].offset = 0;
+    st->t[st->size].pointer = NULL;
     st->size++;
     return old_side;
 }
@@ -109,6 +114,8 @@ int add_var(SymTable* st, char* s, int line, int scope) {
     int old_side = st->size;
     st->t[st->size].arity = -1;
     st->t[st->size].scope = scope;
+    st->t[st->size].offset = 0;
+    st->t[st->size].pointer = NULL;
     st->size++;
     return old_side;
 }
@@ -127,6 +134,14 @@ int get_line(SymTable* st, int i) {
 
 int get_scope(SymTable* st, int i) {
     return st->t[i].scope;
+}
+
+int get_offset(SymTable* st, int i) {
+    return st->t[i].offset;
+}
+
+void set_offset(SymTable* st, int i, int new_offset) {
+    st->t[i].offset = new_offset;
 }
 
 void print_sym_table(SymTable* st) {

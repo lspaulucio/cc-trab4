@@ -13,6 +13,8 @@ extern LitTable *lt;
 
 int stack[STACK_SIZE];
 int sp; // stack pointer
+int fp; //frame pointer
+int offset;
 
 void push(int x)
 {
@@ -188,6 +190,31 @@ void run_output(AST *ast)
     printf("%d\n", x);
 }
 
+void run_write(AST *ast)
+{
+    trace("write");
+    rec_run_ast(get_child(ast, 0));
+    int x = pop();
+    char *string = get_literal(lt, x);
+    // printf("%s\n", process_string(string));
+    printf("%s\n", string);
+}
+
+void run_assign(AST *ast)
+{
+    trace("assign");
+    rec_run_ast(get_child(ast, 1));
+    AST *child = get_child(ast, 0);
+    int var_idx = getPos(child);
+    store(var_idx, pop());
+}
+
+void run_num(AST *ast)
+{
+    trace("num");
+    push(getPos(ast));
+}
+
 void run_svar(AST *ast)
 {
     trace("svar");
@@ -231,15 +258,6 @@ void run_repeat(AST *ast)
     }
 }
 
-void run_assign(AST *ast)
-{
-    trace("assign");
-    rec_run_ast(get_child(ast, 1));
-    AST *child = get_child(ast, 0);
-    int var_idx = getPos(child);
-    store(var_idx, pop());
-}
-
 void run_read(AST *ast)
 {
     trace("read");
@@ -259,16 +277,6 @@ void run_read(AST *ast)
 //
 //     return buffer;
 // }
-
-void run_write(AST *ast)
-{
-    trace("write");
-    rec_run_ast(get_child(ast, 0));
-    int x = pop();
-    char *string = get_literal(lt, x);
-    // printf("%s\n", process_string(string));
-    printf("%s\n", string);
-}
 
 void run_string(AST *ast)
 {
@@ -377,12 +385,6 @@ void run_eq(AST *ast)
     trace("eq");
     bin_op();
     push(l == r);
-}
-
-void run_num(AST *ast)
-{
-    trace("num");
-    push(getPos(ast));
 }
 
 void run_id(AST *ast)
