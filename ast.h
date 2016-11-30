@@ -62,6 +62,10 @@ void setPos_AST(AST *node, int p);
 
 void setPos(AST* node, int pos);
 int getPos(AST* node);
+
+int get_child_count(AST *node);
+AST* get_child(AST *node, int id);
+NodeKind get_kind(AST *node);
 // char* getName(AST* node);
 
 void add_leaf(AST *node, AST *leaf);
@@ -71,6 +75,8 @@ void print_node(AST *node, int level);
 void print_AST(AST *tree);
 
 void free_tree(AST *tree);
+
+const char* kind2str(NodeKind kind);
 
 void node2str(AST *node, char *s);
 int print_node_dot(AST *node);

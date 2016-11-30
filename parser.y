@@ -20,6 +20,7 @@
 #include <stdio.h>
 #include "ast.h"
 #include "tables.h"
+#include "interpreter.h"
 
 int yylex(void);
 void yyerror(char const *s);
@@ -258,8 +259,11 @@ int main()
 
     //yydebug = 1; // Enter debug mode.
     if(!yyparse())
-        printf("PARSE SUCESSFUL!\n");
+        //printf("PARSE SUCESSFUL!\n");
   	     //print_dot(tree);
+
+    stdin = fopen(ctermid(NULL), "r");
+    run_ast(tree);
 
     //print_AST(tree);
     //print_lit_table(lt);

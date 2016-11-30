@@ -52,6 +52,21 @@ int getPos(AST* node)
     return node->pos;
 }
 
+int get_child_count(AST *node)
+{
+    return node->num_nodes;
+}
+
+AST* get_child(AST *node, int id)
+{
+    return node->nodes[id];
+}
+
+NodeKind get_kind(AST *node)
+{
+    return node->type;
+}
+
 // char* getName(AST* node)
 // {
 //     return node->data_text;
@@ -218,4 +233,9 @@ void node2str(AST *node, char *s)
         default:
             sprintf(s, "%s", STRING_NODEKIND[node->type]);
     }
+}
+
+const char* kind2str(NodeKind type)
+{
+    return STRING_NODEKIND[type];
 }
