@@ -6,6 +6,7 @@
 #include "ast.h"
 
 extern SymTable *vt;
+extern SymTable *ft;
 extern LitTable *lt;
 // Data stack -----------------------------------------------------------------
 
@@ -84,9 +85,24 @@ void init_mem()
 
 void rec_run_ast(AST *ast);
 
+void init_func_pointers(AST* ast)
+{
+    int i, size = get_child_count(ast);
+
+    for(i = 0; i < size; i++)
+    {
+        AST *decl = get_child(ast, i);
+        AST *header = get_child(decl, 0);
+        AST *id = get_child(header, 1);
+        set_pointer(ft, getPos(id), decl);
+    }
+}
+
 void run_func_list(AST *ast)
 {
     trace("func_list");
+
+    init_func_pointers(ast);
 
     int i, size = get_child_count(ast);
 

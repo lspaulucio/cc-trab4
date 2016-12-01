@@ -1,6 +1,7 @@
 #ifndef TABLES_H
 #define TABLES_H
 
+#include "ast.h"
 // Literals Table
 // ----------------------------------------------------------------------------
 
@@ -63,6 +64,9 @@ int get_line(SymTable* st, int i);
 
 int get_offset(SymTable* st, int i);
 void set_offset(SymTable* st, int i, int new_offset);
+
+AST* get_pointer(SymTable* st, int i);
+void set_pointer(SymTable* st, int i, AST *pointer);
 
 // Prints the given table to stdout.
 void print_sym_table(SymTable* st);

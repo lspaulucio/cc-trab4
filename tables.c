@@ -144,6 +144,14 @@ void set_offset(SymTable* st, int i, int new_offset) {
     st->t[i].offset = new_offset;
 }
 
+AST* get_pointer(SymTable* st, int i) {
+    return st->t[i].pointer;
+}
+
+void set_pointer(SymTable* st, int i, AST *pointer) {
+    st->t[i].pointer = pointer;
+}
+
 void print_sym_table(SymTable* st) {
     int i;
     printf("Variables table:\n");

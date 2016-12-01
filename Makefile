@@ -10,7 +10,7 @@ flex: scanner.l
 	flex scanner.l
 
 gcc: scanner.c parser.c
-	gcc -Wall -o trab4 scanner.c parser.c ast.c tables.c interpreter.c -ly
+	gcc -Wall -o trab4 scanner.c parser.c ast.c tables.c interpreter.c -ly -g
 
 test: all
 	./test.sh
