@@ -5,7 +5,7 @@
 #include "tables.h"
 #include "ast.h"
 
-extern SymTable *vt;
+extern SymTable *st;
 extern SymTable *ft;
 extern LitTable *lt;
 // Data stack -----------------------------------------------------------------
@@ -104,12 +104,9 @@ void run_func_list(AST *ast)
 
     init_func_pointers(ast);
 
-    int i, size = get_child_count(ast);
+    int size = get_child_count(ast);
 
-    for (i = 0; i < size; i++)
-    {
-        rec_run_ast(get_child(ast, i));
-    }
+    rec_run_ast(get_child(ast, size - 1)); //execute the last child that is the main function
 }
 
 void run_func_decl(AST *ast)
@@ -128,14 +125,12 @@ void run_func_header(AST *ast)
 {
     trace("func_header");
 
-    int i, size = get_child_count(ast);
+    int size = get_child_count(ast);
 
     return; //Retirar depois
 
-    for (i = 0; i < size; i++)
-    {
-        rec_run_ast(get_child(ast, i));
-    }
+    rec_run_ast(get_child(ast, size - 1)); //(execute the last child that is the param_list
+
 }
 
 void run_param_list(AST *ast)
@@ -168,11 +163,10 @@ void run_var_list(AST *ast)
 
     int i, size = get_child_count(ast);
 
-    return; //Retirar depois
-
     for (i = 0; i < size; i++)
     {
-        rec_run_ast(get_child(ast, i));
+        AST *child = get_child(ast, i);
+        set_offset(st, getPos(child), offset++);
     }
 }
 
@@ -221,7 +215,7 @@ void run_assign(AST *ast)
     trace("assign");
     rec_run_ast(get_child(ast, 1));
     AST *child = get_child(ast, 0);
-    int var_idx = getPos(child);
+    int var_idx = get_offset(st, getPos(child));
     store(var_idx, pop());
 }
 
@@ -281,7 +275,7 @@ void run_read(AST *ast)
     printf("read: ");
     scanf("%d", &x);
     AST *child = get_child(ast, 0);
-    int var_idx = getPos(child);
+    int var_idx = get_offset(st, getPos(child));
     store(var_idx, x);
 }
 
@@ -306,11 +300,6 @@ void run_string(AST *ast)
     int r = pop(); \
     int l = pop()
 
-void run_header(AST *ast)
-{
-    return;
-}
-
 void run_while(AST *ast)
 {
     rec_run_ast(get_child(ast, 0));
@@ -325,12 +314,24 @@ void run_while(AST *ast)
 
 void run_arg_list(AST *ast)
 {
-    return;
+    int i, size = get_child_count(ast);
+
+    for (i = size - 1; i >= 0; i--)
+    {
+        rec_run_ast(get_child(ast, i));
+    }
 }
 
 void run_fcall(AST *ast)
 {
     return;
+
+    rec_run_ast(get_child(ast, 0));
+    AST *fpointer = get_pointer(ft, getPos(ast));
+
+    //TEM Q ARRUMAR VARIAVEIS DE FP E SP
+    rec_run_ast(get_child(ast, 0));
+    //TEM Q RECUPERAR VARIAVEIS DE FP E SP
 }
 
 void run_plus(AST *ast)
@@ -406,14 +407,14 @@ void run_eq(AST *ast)
 void run_id(AST *ast)
 {
     trace("id");
-    int var_idx = getPos(ast);
+    int var_idx = get_offset(st, getPos(ast));;
     push(load(var_idx));
 }
 
 void rec_run_ast(AST *ast)
 {
     switch(get_kind(ast))
-    {
+    {   //Nodes
         case FUNC_LIST_NODE:
             run_func_list(ast);
             break;
@@ -421,7 +422,7 @@ void rec_run_ast(AST *ast)
             run_func_decl(ast);
             break;
         case FUNC_HEADER_NODE:
-            run_header(ast);
+            run_func_header(ast);
             break;
         case PARAM_LIST_NODE:
             run_param_list(ast);
@@ -453,12 +454,6 @@ void rec_run_ast(AST *ast)
         case CVAR_NODE:
             run_cvar(ast);
             break;
-        // case ://ARITHOP
-        //     run_arithop(ast);
-        //     break;
-        // case ://COMP_OP
-        //     run_compop(ast);
-        //     break;
         case IF_NODE:
             run_if(ast);
             break;
@@ -474,6 +469,7 @@ void rec_run_ast(AST *ast)
         case STRING_NODE:
             run_string(ast);
             break;
+        //Arith Op Nodes
         case PLUS_NODE:
             run_plus(ast);
             break;
@@ -486,6 +482,7 @@ void rec_run_ast(AST *ast)
         case OVER_NODE:
             run_over(ast);
             break;
+        //Comp Op Nodes
         case LT_NODE:
             run_lt(ast);
             break;
@@ -504,6 +501,7 @@ void rec_run_ast(AST *ast)
         case EQ_NODE:
             run_eq(ast);
             break;
+        //Variable Nodes
        case NUM_NODE:
             run_num(ast);
             break;
