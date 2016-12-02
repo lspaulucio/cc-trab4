@@ -197,7 +197,39 @@ void run_output(AST *ast)
 
     rec_run_ast(get_child(ast, 0));
     int x = pop();
-    printf("%d\n", x);
+    printf("%d", x);
+}
+
+void process_string(char* str)
+{
+    while(*str != '\0')
+    {
+        if(*str == '\"')
+            str++;
+        else if(*str == '\\')
+        {
+            switch(*(++str))
+            {
+                case 'n':
+                    printf("\n");
+                    str++;
+                    break;
+                case 't':
+                    printf("\t");
+                    str++;
+                    break;
+                case '\"':
+                    str++;
+                    break;
+                case '0':
+                    return;
+            }
+        }
+        else{
+            printf("%c", *str);
+            str++;
+        }
+    }
 }
 
 void run_write(AST *ast)
@@ -205,9 +237,7 @@ void run_write(AST *ast)
     trace("write");
     rec_run_ast(get_child(ast, 0));
     int x = pop();
-    char *string = get_literal(lt, x);
-    // printf("%s\n", process_string(string));
-    printf("%s\n", string);
+    process_string(get_literal(lt, x));
 }
 
 void run_assign(AST *ast)
@@ -278,15 +308,6 @@ void run_read(AST *ast)
     int var_idx = get_offset(st, getPos(child));
     store(var_idx, x);
 }
-
-// char* process_string(char* str)
-// {
-//     char *buffer = str;
-//     printf("%s", str);
-//     sscanf(str, "\"%[^\"]s", buffer);
-//
-//     return buffer;
-// }
 
 void run_string(AST *ast)
 {
