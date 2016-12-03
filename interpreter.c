@@ -1,4 +1,3 @@
-
 #include <stdio.h>
 #include <stdlib.h>
 #include "interpreter.h"
@@ -15,19 +14,19 @@ extern LitTable *lt;
 int stack[STACK_SIZE];
 int sp; // stack pointer
 int fp; //frame pointer
-int offset;
+int offset; //offset value
 
-void push(int x)
+void push(int x)    // Insert into the stack
 {
     stack[++sp] = x;
 }
 
-int pop()
+int pop()   // Remove and return the element of stack top
 {
     return stack[sp--];
 }
 
-void init_stack()
+void init_stack() //Init stack
 {
     int i;
     for (i = 0; i < STACK_SIZE; i++)
@@ -35,9 +34,12 @@ void init_stack()
         stack[i] = 0;
     }
     sp = -1;
+    fp = 0;
+    offset = 0;
 }
 
-void print_stack() {
+void print_stack()
+{
     printf("*** STACK: ");
     int i;
     for (i = 0; i <= sp; i++)
@@ -127,9 +129,7 @@ void run_func_header(AST *ast)
 
     int size = get_child_count(ast);
 
-    return; //Retirar depois
-
-    rec_run_ast(get_child(ast, size - 1)); //(execute the last child that is the param_list
+    rec_run_ast(get_child(ast, size - 1)); //execute the last child that is the param_list
 
 }
 
@@ -141,8 +141,13 @@ void run_param_list(AST *ast)
 
     for (i = 0; i < size; i++)
     {
-        rec_run_ast(get_child(ast, i));
+        AST *child = get_child(ast, i);
+        set_offset(st, getPos(child), fp + offset++);
+        store(i, pop());
     }
+
+    for(i = 0; i < size; i++)
+        push(load(i));
 }
 
 void run_func_body(AST *ast)
@@ -166,7 +171,8 @@ void run_var_list(AST *ast)
     for (i = 0; i < size; i++)
     {
         AST *child = get_child(ast, i);
-        set_offset(st, getPos(child), offset++);
+        set_offset(st, getPos(child), fp + offset++);
+        sp++;
     }
 }
 
@@ -258,7 +264,7 @@ void run_num(AST *ast)
 void run_svar(AST *ast)
 {
     trace("svar");
-    push(load(getPos(ast)));
+    push(load(get_offset(st, getPos(ast))));
 }
 
 void run_cvar(AST *ast)
@@ -323,13 +329,13 @@ void run_string(AST *ast)
 
 void run_while(AST *ast)
 {
-    rec_run_ast(get_child(ast, 0));
-    int test = pop();
+    rec_run_ast(get_child(ast, 0)); //run test
+    int test = pop(); //getting result of test
     while (test == 1)
     {
-        rec_run_ast(get_child(ast, 1));
-        rec_run_ast(get_child(ast, 0));
-        test = pop();
+        rec_run_ast(get_child(ast, 1)); //run body
+        rec_run_ast(get_child(ast, 0)); //run test
+        test = pop(); //getting result of test
     }
 }
 
@@ -345,14 +351,24 @@ void run_arg_list(AST *ast)
 
 void run_fcall(AST *ast)
 {
-    return;
+    //saving information of current frame
+    push(fp);
+    fp = ++sp;
+    offset = 0;
 
+    //run func
     rec_run_ast(get_child(ast, 0));
-    AST *fpointer = get_pointer(ft, getPos(ast));
 
-    //TEM Q ARRUMAR VARIAVEIS DE FP E SP
-    rec_run_ast(get_child(ast, 0));
-    //TEM Q RECUPERAR VARIAVEIS DE FP E SP
+    rec_run_ast(get_pointer(ft, getPos(ast)));
+
+    //recovering last frame
+    sp = --fp;
+    fp = pop();
+}
+
+void run_return(AST *ast)
+{
+    rec_run_ast(ast);
 }
 
 void run_plus(AST *ast)
@@ -483,6 +499,9 @@ void rec_run_ast(AST *ast)
             break;
         case FUNC_CALL_NODE:
             run_fcall(ast);
+            break;
+        case RETURN_NODE:
+            run_return(ast);
             break;
         case ARG_LIST_NODE:
             run_arg_list(ast);
