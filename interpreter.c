@@ -354,12 +354,14 @@ void run_fcall(AST *ast)
     //saving information of current frame
     push(fp);
     fp = ++sp;
-    offset = 0;
+    offset = 0; //offset 0 is the return value
 
     //run func
     rec_run_ast(get_child(ast, 0));
 
-    rec_run_ast(get_pointer(ft, getPos(ast)));
+    AST *func = get_pointer(ft, getPos(ast));
+    // printf("%p\t%p", get_pointer(ft, getPos(ast)), func);
+    rec_run_ast(func);
 
     //recovering last frame
     sp = --fp;
@@ -368,7 +370,8 @@ void run_fcall(AST *ast)
 
 void run_return(AST *ast)
 {
-    rec_run_ast(ast);
+    AST *child = get_child(ast, 0);
+    rec_run_ast(child);
 }
 
 void run_plus(AST *ast)
