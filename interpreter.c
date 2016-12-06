@@ -14,6 +14,7 @@ extern LitTable *lt;
 int stack[STACK_SIZE];
 int sp; // stack pointer
 int fp; //frame pointer
+int cl; //control link
 int offset; //offset value
 
 void push(int x)    // Insert into the stack
@@ -34,6 +35,7 @@ void init_stack() //Init stack
         stack[i] = 0;
     }
     sp = -1;
+    cl = 0;
     fp = 0;
     offset = 0;
 }
@@ -142,12 +144,11 @@ void run_param_list(AST *ast)
     for (i = 0; i < size; i++)
     {
         AST *child = get_child(ast, i);
-        set_offset(st, getPos(child), fp + offset++);
-        store(i, pop());
+        int addr = fp + offset++;
+        set_offset(st, getPos(child), addr);
+        store(addr, pop());
+        cl++;
     }
-
-    for(i = 0; i < size; i++)
-        push(load(i));
 }
 
 void run_func_body(AST *ast)
@@ -171,8 +172,9 @@ void run_var_list(AST *ast)
     for (i = 0; i < size; i++)
     {
         AST *child = get_child(ast, i);
-        set_offset(st, getPos(child), fp + offset++);
-        sp++;
+        int addr = fp + offset++;
+        set_offset(st, getPos(child), addr);
+        cl++;
     }
 }
 
@@ -351,9 +353,10 @@ void run_arg_list(AST *ast)
 
 void run_fcall(AST *ast)
 {
+    int ret;
     //saving information of current frame
     push(fp);
-    fp = ++sp;
+    fp = ++cl;
     offset = 0; //offset 0 is the return value
 
     //run func
@@ -364,8 +367,10 @@ void run_fcall(AST *ast)
     rec_run_ast(func);
 
     //recovering last frame
-    sp = --fp;
+    cl = --fp;
+    ret = pop();
     fp = pop();
+    push(ret);
 }
 
 void run_return(AST *ast)
