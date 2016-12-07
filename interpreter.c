@@ -144,10 +144,19 @@ void run_param_list(AST *ast)
     for (i = 0; i < size; i++)
     {
         AST *child = get_child(ast, i);
-        int addr = fp + offset++;
-        set_offset(st, getPos(child), addr);
-        store(addr, pop());
-        cl++;
+        int addr;
+
+        if(get_kind(child) == SVAR_NODE)
+        {
+            addr = fp + offset++;
+            set_offset(st, getPos(child), addr);
+            store(addr, pop());
+            cl++;
+        }
+        else if(get_kind(child) == CVAR_NODE)
+            {
+                // set_offset(st, getPos(child), int new_offset)
+            }
     }
 }
 
@@ -172,9 +181,26 @@ void run_var_list(AST *ast)
     for (i = 0; i < size; i++)
     {
         AST *child = get_child(ast, i);
-        int addr = fp + offset++;
-        set_offset(st, getPos(child), addr);
-        cl++;
+
+        if(get_kind(child) == SVAR_NODE)
+        {
+            int addr = fp + offset++;
+            set_offset(st, getPos(child), addr);
+            cl++;
+        }
+        else if(get_kind(child) == CVAR_NODE)
+            {
+                int array_size;
+                int addr;
+
+                rec_run_ast(get_child(child, 0)); //Get the array size and push on stack
+
+                array_size = pop(); //Getting the array size on stack
+                addr = fp + offset; //Calculating variable address
+                offset += array_size; //Calculating the new offset
+                set_offset(st, getPos(child), addr); //Saving the variable address
+                cl += (array_size - 1); //Moving with control link
+            }
     }
 }
 
@@ -253,7 +279,20 @@ void run_assign(AST *ast)
     trace("assign");
     rec_run_ast(get_child(ast, 1));
     AST *child = get_child(ast, 0);
-    int var_idx = get_offset(st, getPos(child));
+    int var_idx;
+
+    if(get_kind(child) == SVAR_NODE)
+    {
+        var_idx = get_offset(st, getPos(child));
+    }
+    else if(get_kind(child) == CVAR_NODE)
+        {
+            int addr;
+            rec_run_ast(get_child(child, 0));
+            addr = pop();
+            var_idx = get_offset(st, getPos(child)) + addr;
+        }
+
     store(var_idx, pop());
 }
 
@@ -272,13 +311,9 @@ void run_svar(AST *ast)
 void run_cvar(AST *ast)
 {
     trace("cvar");
-
-    int i, size = get_child_count(ast);
-
-    for (i = 0; i < size; i++)
-    {
-        rec_run_ast(get_child(ast, i));
-    }
+    rec_run_ast(get_child(ast, 0));
+    int addr = get_offset(st, getPos(ast)) + pop();
+    push(load(addr));
 }
 
 void run_if(AST *ast)
