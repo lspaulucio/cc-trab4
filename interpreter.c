@@ -69,6 +69,17 @@ int load(int addr)
     return mem[addr];
 }
 
+void print_memory()
+{
+    printf("*** MEMORY: ");
+    int i;
+    for (i = 0; i <= cl; i++)
+    {
+        printf("%d ", mem[i]);
+    }
+    printf("\n");
+}
+
 void init_mem()
 {
     int addr;
@@ -156,6 +167,7 @@ void run_param_list(AST *ast)
         else if(get_kind(child) == CVAR_NODE)
             {
                 set_offset(st, getPos(child), pop());
+                set_tam(st, getPos(child), 1);
             }
     }
 }
@@ -197,8 +209,8 @@ void run_var_list(AST *ast)
 
                 array_size = pop(); //Getting the array size on stack
                 addr = fp + offset; //Calculating variable address
-                offset += array_size; //Calculating the new offset
                 set_offset(st, getPos(child), addr); //Saving the variable address
+                offset += array_size; //Calculating the new offset
                 cl += (array_size - 1); //Moving with control link
             }
     }
@@ -305,6 +317,7 @@ void run_num(AST *ast)
 void run_svar(AST *ast)
 {
     trace("svar");
+
     if(get_tam(st, getPos(ast)) == 0)
     {
         push(load(get_offset(st, getPos(ast))));
@@ -373,6 +386,7 @@ void run_string(AST *ast)
 
 void run_while(AST *ast)
 {
+    trace("while");
     rec_run_ast(get_child(ast, 0)); //run test
     int test = pop(); //getting result of test
     while (test == 1)
@@ -405,6 +419,7 @@ int get_ret_type(AST *ast)
 
 void run_fcall(AST *ast)
 {
+    trace("fcall");
     int ret;
     //saving information of current frame
     push(fp);
@@ -415,8 +430,16 @@ void run_fcall(AST *ast)
     rec_run_ast(get_child(ast, 0));
 
     AST *func = get_pointer(ft, getPos(ast));
-    // printf("%p\t%p", get_pointer(ft, getPos(ast)), func);
+
+    // printf("antes\n");
+    // print_stack();
+    // print_memory();
+
     rec_run_ast(func);
+
+    // printf("depois\n");
+    // print_stack();
+    // print_memory();
 
     int RETURN_FLAG = get_ret_type(func);
     //recovering last frame
@@ -507,7 +530,7 @@ void run_eq(AST *ast)
 void run_id(AST *ast)
 {
     trace("id");
-    int var_idx = get_offset(st, getPos(ast));;
+    int var_idx = get_offset(st, getPos(ast));
     push(load(var_idx));
 }
 

@@ -1,0 +1,1315 @@
+TRACE: func_list
+TRACE: func_decl
+TRACE: func_header
+TRACE: param_list
+TRACE: func_body
+TRACE: var_list
+TRACE: num
+TRACE: block
+TRACE: assign
+TRACE: num
+TRACE: while
+TRACE: lt
+TRACE: svar
+valor: 0TRACE: num
+TRACE: block
+TRACE: assign
+TRACE: input
+TRACE: svar
+valor: 0TRACE: assign
+TRACE: plus
+TRACE: svar
+valor: 0TRACE: num
+TRACE: lt
+TRACE: svar
+valor: 1TRACE: num
+TRACE: block
+TRACE: assign
+TRACE: input
+TRACE: svar
+valor: 1TRACE: assign
+TRACE: plus
+TRACE: svar
+valor: 1TRACE: num
+TRACE: lt
+TRACE: svar
+valor: 2TRACE: num
+TRACE: block
+TRACE: assign
+TRACE: input
+TRACE: svar
+valor: 2TRACE: assign
+TRACE: plus
+TRACE: svar
+valor: 2TRACE: num
+TRACE: lt
+TRACE: svar
+valor: 3TRACE: num
+TRACE: block
+TRACE: assign
+TRACE: input
+TRACE: svar
+valor: 3TRACE: assign
+TRACE: plus
+TRACE: svar
+valor: 3TRACE: num
+TRACE: lt
+TRACE: svar
+valor: 4TRACE: num
+TRACE: block
+TRACE: assign
+TRACE: input
+TRACE: svar
+valor: 4TRACE: assign
+TRACE: plus
+TRACE: svar
+valor: 4TRACE: num
+TRACE: lt
+TRACE: svar
+valor: 5TRACE: num
+TRACE: block
+TRACE: assign
+TRACE: input
+TRACE: svar
+valor: 5TRACE: assign
+TRACE: plus
+TRACE: svar
+valor: 5TRACE: num
+TRACE: lt
+TRACE: svar
+valor: 6TRACE: num
+TRACE: block
+TRACE: assign
+TRACE: input
+TRACE: svar
+valor: 6TRACE: assign
+TRACE: plus
+TRACE: svar
+valor: 6TRACE: num
+TRACE: lt
+TRACE: svar
+valor: 7TRACE: num
+TRACE: block
+TRACE: assign
+TRACE: input
+TRACE: svar
+valor: 7TRACE: assign
+TRACE: plus
+TRACE: svar
+valor: 7TRACE: num
+TRACE: lt
+TRACE: svar
+valor: 8TRACE: num
+TRACE: block
+TRACE: assign
+TRACE: input
+TRACE: svar
+valor: 8TRACE: assign
+TRACE: plus
+TRACE: svar
+valor: 8TRACE: num
+TRACE: lt
+TRACE: svar
+valor: 9TRACE: num
+TRACE: block
+TRACE: assign
+TRACE: input
+TRACE: svar
+valor: 9TRACE: assign
+TRACE: plus
+TRACE: svar
+valor: 9TRACE: num
+TRACE: lt
+TRACE: svar
+valor: 10TRACE: num
+TRACE: fcall
+TRACE: num
+TRACE: num
+TRACE: svar
+ponteiro: 0TRACE: func_decl
+TRACE: func_header
+TRACE: param_list
+TRACE: func_body
+TRACE: var_list
+TRACE: block
+TRACE: assign
+TRACE: svar
+valor: 0TRACE: while
+TRACE: lt
+TRACE: svar
+valor: 0TRACE: minus
+TRACE: svar
+valor: 10TRACE: num
+TRACE: block
+TRACE: assign
+TRACE: fcall
+TRACE: svar
+valor: 10TRACE: svar
+valor: 0TRACE: svar
+valor: 0TRACE: func_decl
+TRACE: func_header
+TRACE: param_list
+TRACE: func_body
+TRACE: var_list
+TRACE: block
+TRACE: assign
+TRACE: svar
+valor: 0TRACE: assign
+TRACE: cvar
+TRACE: svar
+valor: 0TRACE: assign
+TRACE: plus
+TRACE: svar
+valor: 0TRACE: num
+TRACE: while
+TRACE: lt
+TRACE: svar
+valor: 1TRACE: svar
+valor: 10TRACE: block
+TRACE: if
+TRACE: lt
+TRACE: cvar
+TRACE: svar
+valor: 1TRACE: svar
+valor: 0TRACE: assign
+TRACE: plus
+TRACE: svar
+valor: 1TRACE: num
+TRACE: lt
+TRACE: svar
+valor: 2TRACE: svar
+valor: 10TRACE: block
+TRACE: if
+TRACE: lt
+TRACE: cvar
+TRACE: svar
+valor: 2TRACE: svar
+valor: 0TRACE: assign
+TRACE: plus
+TRACE: svar
+valor: 2TRACE: num
+TRACE: lt
+TRACE: svar
+valor: 3TRACE: svar
+valor: 10TRACE: block
+TRACE: if
+TRACE: lt
+TRACE: cvar
+TRACE: svar
+valor: 3TRACE: svar
+valor: 0TRACE: assign
+TRACE: plus
+TRACE: svar
+valor: 3TRACE: num
+TRACE: lt
+TRACE: svar
+valor: 4TRACE: svar
+valor: 10TRACE: block
+TRACE: if
+TRACE: lt
+TRACE: cvar
+TRACE: svar
+valor: 4TRACE: svar
+valor: 0TRACE: assign
+TRACE: plus
+TRACE: svar
+valor: 4TRACE: num
+TRACE: lt
+TRACE: svar
+valor: 5TRACE: svar
+valor: 10TRACE: block
+TRACE: if
+TRACE: lt
+TRACE: cvar
+TRACE: svar
+valor: 5TRACE: svar
+valor: 0TRACE: assign
+TRACE: plus
+TRACE: svar
+valor: 5TRACE: num
+TRACE: lt
+TRACE: svar
+valor: 6TRACE: svar
+valor: 10TRACE: block
+TRACE: if
+TRACE: lt
+TRACE: cvar
+TRACE: svar
+valor: 6TRACE: svar
+valor: 0TRACE: assign
+TRACE: plus
+TRACE: svar
+valor: 6TRACE: num
+TRACE: lt
+TRACE: svar
+valor: 7TRACE: svar
+valor: 10TRACE: block
+TRACE: if
+TRACE: lt
+TRACE: cvar
+TRACE: svar
+valor: 7TRACE: svar
+valor: 0TRACE: assign
+TRACE: plus
+TRACE: svar
+valor: 7TRACE: num
+TRACE: lt
+TRACE: svar
+valor: 8TRACE: svar
+valor: 10TRACE: block
+TRACE: if
+TRACE: lt
+TRACE: cvar
+TRACE: svar
+valor: 8TRACE: svar
+valor: 0TRACE: assign
+TRACE: plus
+TRACE: svar
+valor: 8TRACE: num
+TRACE: lt
+TRACE: svar
+valor: 9TRACE: svar
+valor: 10TRACE: block
+TRACE: if
+TRACE: lt
+TRACE: cvar
+TRACE: svar
+valor: 9TRACE: svar
+valor: 0TRACE: assign
+TRACE: plus
+TRACE: svar
+valor: 9TRACE: num
+TRACE: lt
+TRACE: svar
+valor: 10TRACE: svar
+valor: 10TRACE: svar
+valor: 0TRACE: assign
+TRACE: cvar
+TRACE: svar
+valor: 0TRACE: assign
+TRACE: cvar
+TRACE: svar
+valor: 0TRACE: svar
+valor: 0TRACE: assign
+TRACE: svar
+valor: 0TRACE: svar
+valor: 0TRACE: assign
+TRACE: plus
+TRACE: svar
+valor: 0TRACE: num
+TRACE: lt
+TRACE: svar
+valor: 1TRACE: minus
+TRACE: svar
+valor: 10TRACE: num
+TRACE: block
+TRACE: assign
+TRACE: fcall
+TRACE: svar
+valor: 10TRACE: svar
+valor: 1TRACE: svar
+valor: 0TRACE: func_decl
+TRACE: func_header
+TRACE: param_list
+TRACE: func_body
+TRACE: var_list
+TRACE: block
+TRACE: assign
+TRACE: svar
+valor: 1TRACE: assign
+TRACE: cvar
+TRACE: svar
+valor: 1TRACE: assign
+TRACE: plus
+TRACE: svar
+valor: 1TRACE: num
+TRACE: while
+TRACE: lt
+TRACE: svar
+valor: 2TRACE: svar
+valor: 10TRACE: block
+TRACE: if
+TRACE: lt
+TRACE: cvar
+TRACE: svar
+valor: 2TRACE: svar
+valor: 1TRACE: assign
+TRACE: plus
+TRACE: svar
+valor: 2TRACE: num
+TRACE: lt
+TRACE: svar
+valor: 3TRACE: svar
+valor: 10TRACE: block
+TRACE: if
+TRACE: lt
+TRACE: cvar
+TRACE: svar
+valor: 3TRACE: svar
+valor: 1TRACE: assign
+TRACE: plus
+TRACE: svar
+valor: 3TRACE: num
+TRACE: lt
+TRACE: svar
+valor: 4TRACE: svar
+valor: 10TRACE: block
+TRACE: if
+TRACE: lt
+TRACE: cvar
+TRACE: svar
+valor: 4TRACE: svar
+valor: 1TRACE: assign
+TRACE: plus
+TRACE: svar
+valor: 4TRACE: num
+TRACE: lt
+TRACE: svar
+valor: 5TRACE: svar
+valor: 10TRACE: block
+TRACE: if
+TRACE: lt
+TRACE: cvar
+TRACE: svar
+valor: 5TRACE: svar
+valor: 1TRACE: assign
+TRACE: plus
+TRACE: svar
+valor: 5TRACE: num
+TRACE: lt
+TRACE: svar
+valor: 6TRACE: svar
+valor: 10TRACE: block
+TRACE: if
+TRACE: lt
+TRACE: cvar
+TRACE: svar
+valor: 6TRACE: svar
+valor: 1TRACE: assign
+TRACE: plus
+TRACE: svar
+valor: 6TRACE: num
+TRACE: lt
+TRACE: svar
+valor: 7TRACE: svar
+valor: 10TRACE: block
+TRACE: if
+TRACE: lt
+TRACE: cvar
+TRACE: svar
+valor: 7TRACE: svar
+valor: 1TRACE: assign
+TRACE: plus
+TRACE: svar
+valor: 7TRACE: num
+TRACE: lt
+TRACE: svar
+valor: 8TRACE: svar
+valor: 10TRACE: block
+TRACE: if
+TRACE: lt
+TRACE: cvar
+TRACE: svar
+valor: 8TRACE: svar
+valor: 1TRACE: assign
+TRACE: plus
+TRACE: svar
+valor: 8TRACE: num
+TRACE: lt
+TRACE: svar
+valor: 9TRACE: svar
+valor: 10TRACE: block
+TRACE: if
+TRACE: lt
+TRACE: cvar
+TRACE: svar
+valor: 9TRACE: svar
+valor: 1TRACE: assign
+TRACE: plus
+TRACE: svar
+valor: 9TRACE: num
+TRACE: lt
+TRACE: svar
+valor: 10TRACE: svar
+valor: 10TRACE: svar
+valor: 1TRACE: assign
+TRACE: cvar
+TRACE: svar
+valor: 1TRACE: assign
+TRACE: cvar
+TRACE: svar
+valor: 1TRACE: svar
+valor: 1TRACE: assign
+TRACE: svar
+valor: 1TRACE: svar
+valor: 1TRACE: assign
+TRACE: plus
+TRACE: svar
+valor: 1TRACE: num
+TRACE: lt
+TRACE: svar
+valor: 2TRACE: minus
+TRACE: svar
+valor: 10TRACE: num
+TRACE: block
+TRACE: assign
+TRACE: fcall
+TRACE: svar
+valor: 10TRACE: svar
+valor: 2TRACE: svar
+valor: 0TRACE: func_decl
+TRACE: func_header
+TRACE: param_list
+TRACE: func_body
+TRACE: var_list
+TRACE: block
+TRACE: assign
+TRACE: svar
+valor: 2TRACE: assign
+TRACE: cvar
+TRACE: svar
+valor: 2TRACE: assign
+TRACE: plus
+TRACE: svar
+valor: 2TRACE: num
+TRACE: while
+TRACE: lt
+TRACE: svar
+valor: 3TRACE: svar
+valor: 10TRACE: block
+TRACE: if
+TRACE: lt
+TRACE: cvar
+TRACE: svar
+valor: 3TRACE: svar
+valor: 23TRACE: block
+TRACE: assign
+TRACE: cvar
+TRACE: svar
+valor: 3TRACE: assign
+TRACE: svar
+valor: 3TRACE: assign
+TRACE: plus
+TRACE: svar
+valor: 3TRACE: num
+TRACE: lt
+TRACE: svar
+valor: 4TRACE: svar
+valor: 10TRACE: block
+TRACE: if
+TRACE: lt
+TRACE: cvar
+TRACE: svar
+valor: 4TRACE: svar
+valor: 3TRACE: assign
+TRACE: plus
+TRACE: svar
+valor: 4TRACE: num
+TRACE: lt
+TRACE: svar
+valor: 5TRACE: svar
+valor: 10TRACE: block
+TRACE: if
+TRACE: lt
+TRACE: cvar
+TRACE: svar
+valor: 5TRACE: svar
+valor: 3TRACE: assign
+TRACE: plus
+TRACE: svar
+valor: 5TRACE: num
+TRACE: lt
+TRACE: svar
+valor: 6TRACE: svar
+valor: 10TRACE: block
+TRACE: if
+TRACE: lt
+TRACE: cvar
+TRACE: svar
+valor: 6TRACE: svar
+valor: 3TRACE: assign
+TRACE: plus
+TRACE: svar
+valor: 6TRACE: num
+TRACE: lt
+TRACE: svar
+valor: 7TRACE: svar
+valor: 10TRACE: block
+TRACE: if
+TRACE: lt
+TRACE: cvar
+TRACE: svar
+valor: 7TRACE: svar
+valor: 3TRACE: assign
+TRACE: plus
+TRACE: svar
+valor: 7TRACE: num
+TRACE: lt
+TRACE: svar
+valor: 8TRACE: svar
+valor: 10TRACE: block
+TRACE: if
+TRACE: lt
+TRACE: cvar
+TRACE: svar
+valor: 8TRACE: svar
+valor: 3TRACE: assign
+TRACE: plus
+TRACE: svar
+valor: 8TRACE: num
+TRACE: lt
+TRACE: svar
+valor: 9TRACE: svar
+valor: 10TRACE: block
+TRACE: if
+TRACE: lt
+TRACE: cvar
+TRACE: svar
+valor: 9TRACE: svar
+valor: 3TRACE: assign
+TRACE: plus
+TRACE: svar
+valor: 9TRACE: num
+TRACE: lt
+TRACE: svar
+valor: 10TRACE: svar
+valor: 10TRACE: svar
+valor: 3TRACE: assign
+TRACE: cvar
+TRACE: svar
+valor: 3TRACE: assign
+TRACE: cvar
+TRACE: svar
+valor: 2TRACE: svar
+valor: 3TRACE: assign
+TRACE: svar
+valor: 3TRACE: svar
+valor: 2TRACE: assign
+TRACE: plus
+TRACE: svar
+valor: 2TRACE: num
+TRACE: lt
+TRACE: svar
+valor: 3TRACE: minus
+TRACE: svar
+valor: 10TRACE: num
+TRACE: block
+TRACE: assign
+TRACE: fcall
+TRACE: svar
+valor: 10TRACE: svar
+valor: 3TRACE: svar
+valor: 0TRACE: func_decl
+TRACE: func_header
+TRACE: param_list
+TRACE: func_body
+TRACE: var_list
+TRACE: block
+TRACE: assign
+TRACE: svar
+valor: 3TRACE: assign
+TRACE: cvar
+TRACE: svar
+valor: 3TRACE: assign
+TRACE: plus
+TRACE: svar
+valor: 3TRACE: num
+TRACE: while
+TRACE: lt
+TRACE: svar
+valor: 4TRACE: svar
+valor: 10TRACE: block
+TRACE: if
+TRACE: lt
+TRACE: cvar
+TRACE: svar
+valor: 4TRACE: svar
+valor: 23TRACE: block
+TRACE: assign
+TRACE: cvar
+TRACE: svar
+valor: 4TRACE: assign
+TRACE: svar
+valor: 4TRACE: assign
+TRACE: plus
+TRACE: svar
+valor: 4TRACE: num
+TRACE: lt
+TRACE: svar
+valor: 5TRACE: svar
+valor: 10TRACE: block
+TRACE: if
+TRACE: lt
+TRACE: cvar
+TRACE: svar
+valor: 5TRACE: svar
+valor: 4TRACE: assign
+TRACE: plus
+TRACE: svar
+valor: 5TRACE: num
+TRACE: lt
+TRACE: svar
+valor: 6TRACE: svar
+valor: 10TRACE: block
+TRACE: if
+TRACE: lt
+TRACE: cvar
+TRACE: svar
+valor: 6TRACE: svar
+valor: 4TRACE: assign
+TRACE: plus
+TRACE: svar
+valor: 6TRACE: num
+TRACE: lt
+TRACE: svar
+valor: 7TRACE: svar
+valor: 10TRACE: block
+TRACE: if
+TRACE: lt
+TRACE: cvar
+TRACE: svar
+valor: 7TRACE: svar
+valor: 4TRACE: assign
+TRACE: plus
+TRACE: svar
+valor: 7TRACE: num
+TRACE: lt
+TRACE: svar
+valor: 8TRACE: svar
+valor: 10TRACE: block
+TRACE: if
+TRACE: lt
+TRACE: cvar
+TRACE: svar
+valor: 8TRACE: svar
+valor: 4TRACE: assign
+TRACE: plus
+TRACE: svar
+valor: 8TRACE: num
+TRACE: lt
+TRACE: svar
+valor: 9TRACE: svar
+valor: 10TRACE: block
+TRACE: if
+TRACE: lt
+TRACE: cvar
+TRACE: svar
+valor: 9TRACE: svar
+valor: 4TRACE: assign
+TRACE: plus
+TRACE: svar
+valor: 9TRACE: num
+TRACE: lt
+TRACE: svar
+valor: 10TRACE: svar
+valor: 10TRACE: svar
+valor: 4TRACE: assign
+TRACE: cvar
+TRACE: svar
+valor: 4TRACE: assign
+TRACE: cvar
+TRACE: svar
+valor: 3TRACE: svar
+valor: 4TRACE: assign
+TRACE: svar
+valor: 4TRACE: svar
+valor: 3TRACE: assign
+TRACE: plus
+TRACE: svar
+valor: 3TRACE: num
+TRACE: lt
+TRACE: svar
+valor: 4TRACE: minus
+TRACE: svar
+valor: 10TRACE: num
+TRACE: block
+TRACE: assign
+TRACE: fcall
+TRACE: svar
+valor: 10TRACE: svar
+valor: 4TRACE: svar
+valor: 0TRACE: func_decl
+TRACE: func_header
+TRACE: param_list
+TRACE: func_body
+TRACE: var_list
+TRACE: block
+TRACE: assign
+TRACE: svar
+valor: 4TRACE: assign
+TRACE: cvar
+TRACE: svar
+valor: 4TRACE: assign
+TRACE: plus
+TRACE: svar
+valor: 4TRACE: num
+TRACE: while
+TRACE: lt
+TRACE: svar
+valor: 5TRACE: svar
+valor: 10TRACE: block
+TRACE: if
+TRACE: lt
+TRACE: cvar
+TRACE: svar
+valor: 5TRACE: svar
+valor: 23TRACE: block
+TRACE: assign
+TRACE: cvar
+TRACE: svar
+valor: 5TRACE: assign
+TRACE: svar
+valor: 5TRACE: assign
+TRACE: plus
+TRACE: svar
+valor: 5TRACE: num
+TRACE: lt
+TRACE: svar
+valor: 6TRACE: svar
+valor: 10TRACE: block
+TRACE: if
+TRACE: lt
+TRACE: cvar
+TRACE: svar
+valor: 6TRACE: svar
+valor: 5TRACE: assign
+TRACE: plus
+TRACE: svar
+valor: 6TRACE: num
+TRACE: lt
+TRACE: svar
+valor: 7TRACE: svar
+valor: 10TRACE: block
+TRACE: if
+TRACE: lt
+TRACE: cvar
+TRACE: svar
+valor: 7TRACE: svar
+valor: 5TRACE: assign
+TRACE: plus
+TRACE: svar
+valor: 7TRACE: num
+TRACE: lt
+TRACE: svar
+valor: 8TRACE: svar
+valor: 10TRACE: block
+TRACE: if
+TRACE: lt
+TRACE: cvar
+TRACE: svar
+valor: 8TRACE: svar
+valor: 5TRACE: assign
+TRACE: plus
+TRACE: svar
+valor: 8TRACE: num
+TRACE: lt
+TRACE: svar
+valor: 9TRACE: svar
+valor: 10TRACE: block
+TRACE: if
+TRACE: lt
+TRACE: cvar
+TRACE: svar
+valor: 9TRACE: svar
+valor: 5TRACE: assign
+TRACE: plus
+TRACE: svar
+valor: 9TRACE: num
+TRACE: lt
+TRACE: svar
+valor: 10TRACE: svar
+valor: 10TRACE: svar
+valor: 5TRACE: assign
+TRACE: cvar
+TRACE: svar
+valor: 5TRACE: assign
+TRACE: cvar
+TRACE: svar
+valor: 4TRACE: svar
+valor: 5TRACE: assign
+TRACE: svar
+valor: 5TRACE: svar
+valor: 4TRACE: assign
+TRACE: plus
+TRACE: svar
+valor: 4TRACE: num
+TRACE: lt
+TRACE: svar
+valor: 5TRACE: minus
+TRACE: svar
+valor: 10TRACE: num
+TRACE: block
+TRACE: assign
+TRACE: fcall
+TRACE: svar
+valor: 10TRACE: svar
+valor: 5TRACE: svar
+valor: 0TRACE: func_decl
+TRACE: func_header
+TRACE: param_list
+TRACE: func_body
+TRACE: var_list
+TRACE: block
+TRACE: assign
+TRACE: svar
+valor: 5TRACE: assign
+TRACE: cvar
+TRACE: svar
+valor: 5TRACE: assign
+TRACE: plus
+TRACE: svar
+valor: 5TRACE: num
+TRACE: while
+TRACE: lt
+TRACE: svar
+valor: 6TRACE: svar
+valor: 10TRACE: block
+TRACE: if
+TRACE: lt
+TRACE: cvar
+TRACE: svar
+valor: 6TRACE: svar
+valor: 23TRACE: block
+TRACE: assign
+TRACE: cvar
+TRACE: svar
+valor: 6TRACE: assign
+TRACE: svar
+valor: 6TRACE: assign
+TRACE: plus
+TRACE: svar
+valor: 6TRACE: num
+TRACE: lt
+TRACE: svar
+valor: 7TRACE: svar
+valor: 10TRACE: block
+TRACE: if
+TRACE: lt
+TRACE: cvar
+TRACE: svar
+valor: 7TRACE: svar
+valor: 6TRACE: assign
+TRACE: plus
+TRACE: svar
+valor: 7TRACE: num
+TRACE: lt
+TRACE: svar
+valor: 8TRACE: svar
+valor: 10TRACE: block
+TRACE: if
+TRACE: lt
+TRACE: cvar
+TRACE: svar
+valor: 8TRACE: svar
+valor: 6TRACE: assign
+TRACE: plus
+TRACE: svar
+valor: 8TRACE: num
+TRACE: lt
+TRACE: svar
+valor: 9TRACE: svar
+valor: 10TRACE: block
+TRACE: if
+TRACE: lt
+TRACE: cvar
+TRACE: svar
+valor: 9TRACE: svar
+valor: 6TRACE: assign
+TRACE: plus
+TRACE: svar
+valor: 9TRACE: num
+TRACE: lt
+TRACE: svar
+valor: 10TRACE: svar
+valor: 10TRACE: svar
+valor: 6TRACE: assign
+TRACE: cvar
+TRACE: svar
+valor: 6TRACE: assign
+TRACE: cvar
+TRACE: svar
+valor: 5TRACE: svar
+valor: 6TRACE: assign
+TRACE: svar
+valor: 6TRACE: svar
+valor: 5TRACE: assign
+TRACE: plus
+TRACE: svar
+valor: 5TRACE: num
+TRACE: lt
+TRACE: svar
+valor: 6TRACE: minus
+TRACE: svar
+valor: 10TRACE: num
+TRACE: block
+TRACE: assign
+TRACE: fcall
+TRACE: svar
+valor: 10TRACE: svar
+valor: 6TRACE: svar
+valor: 0TRACE: func_decl
+TRACE: func_header
+TRACE: param_list
+TRACE: func_body
+TRACE: var_list
+TRACE: block
+TRACE: assign
+TRACE: svar
+valor: 6TRACE: assign
+TRACE: cvar
+TRACE: svar
+valor: 6TRACE: assign
+TRACE: plus
+TRACE: svar
+valor: 6TRACE: num
+TRACE: while
+TRACE: lt
+TRACE: svar
+valor: 7TRACE: svar
+valor: 10TRACE: block
+TRACE: if
+TRACE: lt
+TRACE: cvar
+TRACE: svar
+valor: 7TRACE: svar
+valor: 23TRACE: block
+TRACE: assign
+TRACE: cvar
+TRACE: svar
+valor: 7TRACE: assign
+TRACE: svar
+valor: 7TRACE: assign
+TRACE: plus
+TRACE: svar
+valor: 7TRACE: num
+TRACE: lt
+TRACE: svar
+valor: 8TRACE: svar
+valor: 10TRACE: block
+TRACE: if
+TRACE: lt
+TRACE: cvar
+TRACE: svar
+valor: 8TRACE: svar
+valor: 7TRACE: assign
+TRACE: plus
+TRACE: svar
+valor: 8TRACE: num
+TRACE: lt
+TRACE: svar
+valor: 9TRACE: svar
+valor: 10TRACE: block
+TRACE: if
+TRACE: lt
+TRACE: cvar
+TRACE: svar
+valor: 9TRACE: svar
+valor: 7TRACE: assign
+TRACE: plus
+TRACE: svar
+valor: 9TRACE: num
+TRACE: lt
+TRACE: svar
+valor: 10TRACE: svar
+valor: 10TRACE: svar
+valor: 7TRACE: assign
+TRACE: cvar
+TRACE: svar
+valor: 7TRACE: assign
+TRACE: cvar
+TRACE: svar
+valor: 6TRACE: svar
+valor: 7TRACE: assign
+TRACE: svar
+valor: 7TRACE: svar
+valor: 6TRACE: assign
+TRACE: plus
+TRACE: svar
+valor: 6TRACE: num
+TRACE: lt
+TRACE: svar
+valor: 7TRACE: minus
+TRACE: svar
+valor: 10TRACE: num
+TRACE: block
+TRACE: assign
+TRACE: fcall
+TRACE: svar
+valor: 10TRACE: svar
+valor: 7TRACE: svar
+valor: 0TRACE: func_decl
+TRACE: func_header
+TRACE: param_list
+TRACE: func_body
+TRACE: var_list
+TRACE: block
+TRACE: assign
+TRACE: svar
+valor: 7TRACE: assign
+TRACE: cvar
+TRACE: svar
+valor: 7TRACE: assign
+TRACE: plus
+TRACE: svar
+valor: 7TRACE: num
+TRACE: while
+TRACE: lt
+TRACE: svar
+valor: 8TRACE: svar
+valor: 10TRACE: block
+TRACE: if
+TRACE: lt
+TRACE: cvar
+TRACE: svar
+valor: 8TRACE: svar
+valor: 23TRACE: block
+TRACE: assign
+TRACE: cvar
+TRACE: svar
+valor: 8TRACE: assign
+TRACE: svar
+valor: 8TRACE: assign
+TRACE: plus
+TRACE: svar
+valor: 8TRACE: num
+TRACE: lt
+TRACE: svar
+valor: 9TRACE: svar
+valor: 10TRACE: block
+TRACE: if
+TRACE: lt
+TRACE: cvar
+TRACE: svar
+valor: 9TRACE: svar
+valor: 8TRACE: assign
+TRACE: plus
+TRACE: svar
+valor: 9TRACE: num
+TRACE: lt
+TRACE: svar
+valor: 10TRACE: svar
+valor: 10TRACE: svar
+valor: 8TRACE: assign
+TRACE: cvar
+TRACE: svar
+valor: 8TRACE: assign
+TRACE: cvar
+TRACE: svar
+valor: 7TRACE: svar
+valor: 8TRACE: assign
+TRACE: svar
+valor: 8TRACE: svar
+valor: 7TRACE: assign
+TRACE: plus
+TRACE: svar
+valor: 7TRACE: num
+TRACE: lt
+TRACE: svar
+valor: 8TRACE: minus
+TRACE: svar
+valor: 10TRACE: num
+TRACE: block
+TRACE: assign
+TRACE: fcall
+TRACE: svar
+valor: 10TRACE: svar
+valor: 8TRACE: svar
+valor: 0TRACE: func_decl
+TRACE: func_header
+TRACE: param_list
+TRACE: func_body
+TRACE: var_list
+TRACE: block
+TRACE: assign
+TRACE: svar
+valor: 8TRACE: assign
+TRACE: cvar
+TRACE: svar
+valor: 8TRACE: assign
+TRACE: plus
+TRACE: svar
+valor: 8TRACE: num
+TRACE: while
+TRACE: lt
+TRACE: svar
+valor: 9TRACE: svar
+valor: 10TRACE: block
+TRACE: if
+TRACE: lt
+TRACE: cvar
+TRACE: svar
+valor: 9TRACE: svar
+valor: 23TRACE: block
+TRACE: assign
+TRACE: cvar
+TRACE: svar
+valor: 9TRACE: assign
+TRACE: svar
+valor: 9TRACE: assign
+TRACE: plus
+TRACE: svar
+valor: 9TRACE: num
+TRACE: lt
+TRACE: svar
+valor: 10TRACE: svar
+valor: 10TRACE: svar
+valor: 9TRACE: assign
+TRACE: cvar
+TRACE: svar
+valor: 9TRACE: assign
+TRACE: cvar
+TRACE: svar
+valor: 8TRACE: svar
+valor: 9TRACE: assign
+TRACE: svar
+valor: 9TRACE: svar
+valor: 8TRACE: assign
+TRACE: plus
+TRACE: svar
+valor: 8TRACE: num
+TRACE: lt
+TRACE: svar
+valor: 9TRACE: minus
+TRACE: svar
+valor: 10TRACE: num
+TRACE: assign
+TRACE: num
+TRACE: write
+TRACE: string
+Sorted array: TRACE: while
+TRACE: lt
+TRACE: svar
+valor: 0TRACE: num
+TRACE: block
+TRACE: output
+TRACE: cvar
+TRACE: svar
+valor: 00TRACE: write
+TRACE: string
+ TRACE: assign
+TRACE: plus
+TRACE: svar
+valor: 0TRACE: num
+TRACE: lt
+TRACE: svar
+valor: 1TRACE: num
+TRACE: block
+TRACE: output
+TRACE: cvar
+TRACE: svar
+valor: 11TRACE: write
+TRACE: string
+ TRACE: assign
+TRACE: plus
+TRACE: svar
+valor: 1TRACE: num
+TRACE: lt
+TRACE: svar
+valor: 2TRACE: num
+TRACE: block
+TRACE: output
+TRACE: cvar
+TRACE: svar
+valor: 23TRACE: write
+TRACE: string
+ TRACE: assign
+TRACE: plus
+TRACE: svar
+valor: 2TRACE: num
+TRACE: lt
+TRACE: svar
+valor: 3TRACE: num
+TRACE: block
+TRACE: output
+TRACE: cvar
+TRACE: svar
+valor: 34TRACE: write
+TRACE: string
+ TRACE: assign
+TRACE: plus
+TRACE: svar
+valor: 3TRACE: num
+TRACE: lt
+TRACE: svar
+valor: 4TRACE: num
+TRACE: block
+TRACE: output
+TRACE: cvar
+TRACE: svar
+valor: 45TRACE: write
+TRACE: string
+ TRACE: assign
+TRACE: plus
+TRACE: svar
+valor: 4TRACE: num
+TRACE: lt
+TRACE: svar
+valor: 5TRACE: num
+TRACE: block
+TRACE: output
+TRACE: cvar
+TRACE: svar
+valor: 56TRACE: write
+TRACE: string
+ TRACE: assign
+TRACE: plus
+TRACE: svar
+valor: 5TRACE: num
+TRACE: lt
+TRACE: svar
+valor: 6TRACE: num
+TRACE: block
+TRACE: output
+TRACE: cvar
+TRACE: svar
+valor: 67TRACE: write
+TRACE: string
+ TRACE: assign
+TRACE: plus
+TRACE: svar
+valor: 6TRACE: num
+TRACE: lt
+TRACE: svar
+valor: 7TRACE: num
+TRACE: block
+TRACE: output
+TRACE: cvar
+TRACE: svar
+valor: 78TRACE: write
+TRACE: string
+ TRACE: assign
+TRACE: plus
+TRACE: svar
+valor: 7TRACE: num
+TRACE: lt
+TRACE: svar
+valor: 8TRACE: num
+TRACE: block
+TRACE: output
+TRACE: cvar
+TRACE: svar
+valor: 89TRACE: write
+TRACE: string
+ TRACE: assign
+TRACE: plus
+TRACE: svar
+valor: 8TRACE: num
+TRACE: lt
+TRACE: svar
+valor: 9TRACE: num
+TRACE: block
+TRACE: output
+TRACE: cvar
+TRACE: svar
+valor: 923TRACE: write
+TRACE: string
+ TRACE: assign
+TRACE: plus
+TRACE: svar
+valor: 9TRACE: num
+TRACE: lt
+TRACE: svar
+valor: 10TRACE: num
+TRACE: write
+TRACE: string
+
