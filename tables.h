@@ -68,6 +68,8 @@ void set_offset(SymTable* st, int i, int new_offset);
 AST* get_pointer(SymTable* st, int i);
 void set_pointer(SymTable* st, int i, AST *pointer);
 
+void set_tam(SymTable* st, int i, int tam);
+int get_tam(SymTable* st, int i);
 // Prints the given table to stdout.
 void print_sym_table(SymTable* st);
 

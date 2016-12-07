@@ -98,8 +98,8 @@ var_decl_list:	var_decl_list var_decl                   {$$ = $1; add_leaf($1, $
 			|	var_decl                                 {$$ = new_subtree(VAR_LIST_NODE, 1, $1);}
 ;
 
-var_decl:	INT ID SEMI                                  {new_var(getPos($2), scope); $$ = create_node_aux(SVAR_NODE, lookup_var(st, get_name(aux, getPos($2)), scope));}
-		|	INT ID LBRACK NUM RBRACK SEMI                {new_var(getPos($2), scope); $$ = create_node_aux(CVAR_NODE, lookup_var(st, get_name(aux, getPos($2)), scope)); add_leaf($$, $4);}
+var_decl:	INT ID SEMI                                  {new_var(getPos($2), scope); $$ = create_node_aux(SVAR_NODE, lookup_var(st, get_name(aux, getPos($2)), scope)); set_tam(st, lookup_var(st, get_name(aux, getPos($2)), scope), 0);}
+		|	INT ID LBRACK NUM RBRACK SEMI                {new_var(getPos($2), scope); $$ = create_node_aux(CVAR_NODE, lookup_var(st, get_name(aux, getPos($2)), scope)); add_leaf($$, $4); set_tam(st, lookup_var(st, get_name(aux, getPos($2)), scope), getPos($4));}
 ;
 
 stmt_list: 	stmt_list stmt                               {$$ = $1; add_leaf($1, $2);}

@@ -155,7 +155,8 @@ void run_param_list(AST *ast)
         }
         else if(get_kind(child) == CVAR_NODE)
             {
-                // set_offset(st, getPos(child), int new_offset)
+                int tam = pop();
+                set_offset(st, getPos(child), pop());
             }
     }
 }
@@ -305,7 +306,14 @@ void run_num(AST *ast)
 void run_svar(AST *ast)
 {
     trace("svar");
-    push(load(get_offset(st, getPos(ast))));
+    if(get_tam(st, getPos(ast)) == 0)
+    {
+        push(load(get_offset(st, getPos(ast))));
+    }
+    else{
+            push(get_offset(st, getPos(ast)));
+            push(get_tam(st, getPos(ast)));
+        }
 }
 
 void run_cvar(AST *ast)
@@ -392,7 +400,7 @@ void run_fcall(AST *ast)
     //saving information of current frame
     push(fp);
     fp = ++cl;
-    offset = 0; //offset 0 is the return value
+    offset = 1; //offset 0 is the return value
 
     //run func
     rec_run_ast(get_child(ast, 0));
@@ -402,8 +410,8 @@ void run_fcall(AST *ast)
     rec_run_ast(func);
 
     //recovering last frame
+    ret = load(fp);
     cl = --fp;
-    ret = pop();
     fp = pop();
     push(ret);
 }
@@ -412,6 +420,7 @@ void run_return(AST *ast)
 {
     AST *child = get_child(ast, 0);
     rec_run_ast(child);
+    store(fp, pop());
 }
 
 void run_plus(AST *ast)

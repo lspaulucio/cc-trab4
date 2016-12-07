@@ -62,6 +62,7 @@ typedef struct {
   int arity;
   int scope;
   int offset;
+  int tam;
   AST *pointer;
 } Entry;
 
@@ -104,6 +105,7 @@ int add_func(SymTable* st, char* s, int line, int arity) {
     st->t[st->size].arity = arity;
     st->t[st->size].offset = 0;
     st->t[st->size].pointer = NULL;
+    st->t[st->size].tam = 0;
     st->size++;
     return old_side;
 }
@@ -116,6 +118,7 @@ int add_var(SymTable* st, char* s, int line, int scope) {
     st->t[st->size].scope = scope;
     st->t[st->size].offset = 0;
     st->t[st->size].pointer = NULL;
+    st->t[st->size].tam = 0;
     st->size++;
     return old_side;
 }
@@ -150,6 +153,16 @@ AST* get_pointer(SymTable* st, int i) {
 
 void set_pointer(SymTable* st, int i, AST *pointer) {
     st->t[i].pointer = pointer;
+}
+
+int get_tam(SymTable* st, int i)
+{
+    return st->t[i].tam;
+}
+
+void set_tam(SymTable* st, int i, int tam)
+{
+    st->t[i].tam = tam;
 }
 
 void print_sym_table(SymTable* st) {
