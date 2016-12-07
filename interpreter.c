@@ -109,7 +109,7 @@ void init_func_pointers(AST* ast)
         AST *decl = get_child(ast, i);
         AST *header = get_child(decl, 0);
         AST *id = get_child(header, 1);
-        set_pointer(ft, getPos(id), decl);
+        set_pointer(ft, getPos(id), decl); //saving pointer to function
     }
 }
 
@@ -157,17 +157,17 @@ void run_param_list(AST *ast)
         AST *child = get_child(ast, i);
         int addr;
 
-        if(get_kind(child) == SVAR_NODE)
+        if(get_kind(child) == SVAR_NODE) //if is a simple variable get the address and save inside the symbol
         {
             addr = fp + offset++;
             set_offset(st, getPos(child), addr);
             store(addr, pop());
             cl++;
         }
-        else if(get_kind(child) == CVAR_NODE)
+        else if(get_kind(child) == CVAR_NODE) //if is a composite variable get the reference address and save inside the symbol
             {
                 set_offset(st, getPos(child), pop());
-                set_tam(st, getPos(child), 1);
+                set_tam(st, getPos(child), 1); //Setting the size to be different of 0, it means that is a composite variable
             }
     }
 }
@@ -197,7 +197,7 @@ void run_var_list(AST *ast)
         if(get_kind(child) == SVAR_NODE)
         {
             int addr = fp + offset++;
-            set_offset(st, getPos(child), addr);
+            set_offset(st, getPos(child), addr); //saving the variable address
             cl++;
         }
         else if(get_kind(child) == CVAR_NODE)
@@ -246,7 +246,7 @@ void run_output(AST *ast)
     printf("%d", x);
 }
 
-void process_string(char* str)
+void process_string(char* str) //Print string formatted
 {
     while(*str != '\0')
     {
@@ -295,14 +295,14 @@ void run_assign(AST *ast)
 
     if(get_kind(child) == SVAR_NODE)
     {
-        var_idx = get_offset(st, getPos(child));
+        var_idx = get_offset(st, getPos(child)); //getting variable address
     }
     else if(get_kind(child) == CVAR_NODE)
         {
             int addr;
             rec_run_ast(get_child(child, 0));
-            addr = pop();
-            var_idx = get_offset(st, getPos(child)) + addr;
+            addr = pop(); //getting vector size
+            var_idx = get_offset(st, getPos(child)) + addr; //Calculating the vector base address
         }
 
     store(var_idx, pop());
@@ -423,6 +423,7 @@ void run_fcall(AST *ast)
     int ret;
     //saving information of current frame
     push(fp);
+    //getting new frame pointer
     fp = ++cl;
     offset = 1; //offset 0 is the return value
 

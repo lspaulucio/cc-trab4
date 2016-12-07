@@ -192,7 +192,8 @@ void yyerror (char const *s)
 }
 
 // ////////////////////////////////////// SEMANTIC ERROR //////////////////////////////////
-void new_func(int i, int arity) {
+void new_func(int i, int arity) //Inserting a new function in function table if it doesn't exist
+{
     char* name = get_name(aux, i);
     int line = get_line(aux, i);
     int idx = lookup_func(ft, name);
@@ -205,7 +206,8 @@ void new_func(int i, int arity) {
     add_func(ft, name, line, arity);
 }
 
-void check_func(int i, int arity) {
+void check_func(int i, int arity) //check if function exist
+{
     char* name = get_name(aux, i);
     int line = get_line(aux, i);
     int idx = lookup_func(ft, name);
@@ -224,7 +226,8 @@ void check_func(int i, int arity) {
     }
 }
 
-void check_var(int i, int scope) {
+void check_var(int i, int scope) //check if variable exist
+{
     char* name = get_name(aux, i);
     int line = get_line(aux, i);
     int idx = lookup_var(st, name, scope);
@@ -235,7 +238,8 @@ void check_var(int i, int scope) {
     }
 }
 
-void new_var(int i, int scope) {
+void new_var(int i, int scope)  //insert new variable on table and checking if it doesn't exist
+{
     char* name = get_name(aux, i);
     int line = get_line(aux, i);
     int idx = lookup_var(st, name, scope);
@@ -252,23 +256,27 @@ void new_var(int i, int scope) {
 
 int main()
 {
-    lt = create_lit_table();
-    st = create_sym_table();
-    aux = create_sym_table();
-    ft = create_sym_table();
+    lt = create_lit_table(); //Creating literals table
+    st = create_sym_table(); //Creating symbols table
+    aux = create_sym_table(); //Creating auxiliar table
+    ft = create_sym_table(); //Creating functions table
 
     //yydebug = 1; // Enter debug mode.
-    if(!yyparse())
-        //printf("PARSE SUCESSFUL!\n");
-  	     //print_dot(tree);
 
-    stdin = fopen(ctermid(NULL), "r");
-    run_ast(tree);
+    if(!yyparse()) //If parser success
+    {
+        stdin = fopen(ctermid(NULL), "r");
+        run_ast(tree); //Running interpreter
+        //printf("PARSE SUCESSFUL!\n"); //print message
+  	    //print_dot(tree); //print tree in dot format
+    }
 
-    //print_AST(tree);
-    //print_lit_table(lt);
-    //print_sym_table(st);
-    //print_func_table(ft);
+    //print_AST(tree); //print ast nodes
+    //print_lit_table(lt); //print literals table
+    //print_sym_table(st); //print symbols table
+    //print_func_table(ft); //print functions table
+
+    //free memory
     free_tree(tree);
     free_sym_table(st);
     free_sym_table(aux);
