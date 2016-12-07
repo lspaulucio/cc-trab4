@@ -155,7 +155,6 @@ void run_param_list(AST *ast)
         }
         else if(get_kind(child) == CVAR_NODE)
             {
-                int tam = pop();
                 set_offset(st, getPos(child), pop());
             }
     }
@@ -312,7 +311,7 @@ void run_svar(AST *ast)
     }
     else{
             push(get_offset(st, getPos(ast)));
-            push(get_tam(st, getPos(ast)));
+            // push(get_tam(st, getPos(ast)));
         }
 }
 
@@ -394,6 +393,16 @@ void run_arg_list(AST *ast)
     }
 }
 
+int get_ret_type(AST *ast)
+{
+    AST *funcheader = get_child(ast, 0);
+
+    if(get_kind(get_child(funcheader, 0)) == INT_NODE)
+        return 1;
+    else
+        return 0;
+}
+
 void run_fcall(AST *ast)
 {
     int ret;
@@ -409,17 +418,19 @@ void run_fcall(AST *ast)
     // printf("%p\t%p", get_pointer(ft, getPos(ast)), func);
     rec_run_ast(func);
 
+    int RETURN_FLAG = get_ret_type(func);
     //recovering last frame
     ret = load(fp);
     cl = --fp;
     fp = pop();
-    push(ret);
+
+    if(RETURN_FLAG)
+        push(ret);
 }
 
 void run_return(AST *ast)
 {
-    AST *child = get_child(ast, 0);
-    rec_run_ast(child);
+    rec_run_ast(get_child(ast, 0));
     store(fp, pop());
 }
 
